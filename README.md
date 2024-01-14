@@ -6,16 +6,17 @@
 
  date    : 2024/01/13
 
- update  :
+ update  : 2024/01/14
 
 ***
 ### Summary
 
-Vue.js + hono + pages,  sample
+Vue.js SPA + hono + pages,  sample
 
 ***
 ### blog 
 
+https://zenn.dev/knaka0209/scraps/0c41bbd368ec93
 
 ***
 
