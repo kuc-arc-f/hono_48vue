@@ -1,0 +1,142 @@
+DROP TABLE IF EXISTS Customers;
+CREATE TABLE Customers (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  createdAt TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP(3) NULL,
+  CompanyName TEXT NOT NULL,
+  ContactName TEXT NOT NULL
+);
+
+INSERT INTO Customers (CompanyName, ContactName) VALUES ('Alfreds Futterkiste', 'Maria Anders');
+INSERT INTO Customers (CompanyName, ContactName) VALUES ('Around the Horn', 'Thomas Hardy');
+INSERT INTO Customers (CompanyName, ContactName) VALUES ('Bs Beverages', 'Victoria Ashworth');
+
+DROP TABLE IF EXISTS todos;
+CREATE TABLE todos (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  createdAt TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP(3) NULL,
+  title TEXT NOT NULL,
+  content TEXT,
+  completed INTEGER  DEFAULT 0,
+  userId    INTEGER  DEFAULT 0 
+);
+DROP TABLE IF EXISTS Session;
+CREATE TABLE "Session" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "sessionId" TEXT NOT NULL,
+    "key" TEXT NOT NULL,
+    "value" TEXT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME
+);
+
+DROP TABLE IF EXISTS Repo;
+CREATE TABLE "Repo" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME
+);
+
+DROP TABLE IF EXISTS RepoCount;
+CREATE TABLE "RepoCount" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "count" INTEGER,
+    "uniques" INTEGER,
+    "repoId" INTEGER NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME
+);
+
+DROP TABLE IF EXISTS Plan;
+CREATE TABLE "Plan" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "userId" INTEGER,
+    "content" TEXT NOT NULL,
+    "p_date" DATETIME,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME
+);
+DROP TABLE IF EXISTS ErChart;
+CREATE TABLE "ErChart" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME,
+    "title" TEXT,
+    "content" TEXT,
+    "userId" INTEGER
+);
+DROP TABLE IF EXISTS TaskItem;
+CREATE TABLE "TaskItem" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME,
+    "projectId" INTEGER,
+    "title" TEXT,
+    "content" TEXT,
+    "complete" DATETIME,
+    "start_date" DATETIME,
+    "userId" INTEGER,
+    "status" TEXT
+);
+DROP TABLE IF EXISTS Project;
+CREATE TABLE "Project" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME,
+    "name" TEXT,
+    "InveiteCode" TEXT,
+    "userId" INTEGER
+);
+
+DROP TABLE IF EXISTS ProjectMember;
+CREATE TABLE "ProjectMember" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME,
+    "projectId" INTEGER,
+    "userId" INTEGER
+);
+
+DROP TABLE IF EXISTS User;
+CREATE TABLE "User" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "password" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "name" TEXT
+);
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+DROP TABLE IF EXISTS BmCategory;
+CREATE TABLE "BmCategory" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "name" TEXT,
+    "userId" TEXT
+);
+
+DROP TABLE IF EXISTS BookMark;
+CREATE TABLE "BookMark" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "title" TEXT,
+    "url" TEXT,
+    "bmCategoryId" INTEGER,
+    "tag" TEXT,
+    "userId" TEXT
+);
+
+DROP TABLE IF EXISTS Memo;
+CREATE TABLE "Memo" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "title" TEXT,
+    "content" TEXT,
+    "userId" TEXT
+);
