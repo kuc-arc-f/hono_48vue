@@ -14,6 +14,30 @@
 Vue.js 3 + vite, hono pages  sample
 
 ***
+### vue-build
+
+```
+npx vite build --mode client
+
+#watch-mode
+npx vite build --mode client --watch
+```
+
+***
+### hono  build, dev-start
+
+* dev-start
+
+```
+yarn dev
+```
+* build
+
+```
+yarn build
+```
+
+***
 ### blog 
 
 https://zenn.dev/knaka0209/scraps/0c41bbd368ec93
