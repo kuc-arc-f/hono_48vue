@@ -1,17 +1,17 @@
 ﻿# hono_48vue
 
- Version: 0.9.1
+ Version: 0.9.2
 
  Author  : Kouji Nakashima / kuc-arc-f.com
 
  date    : 2024/01/13
 
- update  : 2024/01/14
+ update  : 2024/02/02
 
 ***
 ### Summary
 
-Vue.js SPA + hono + pages,  sample
+Vue.js 3 + vite, hono pages  sample
 
 ***
 ### blog 
